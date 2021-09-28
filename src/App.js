@@ -6,12 +6,21 @@ import './App.css';
 class App extends Component {
     state = {
         counters: [
-            {id: 1, value: 4},
+            {id: 1, value: 0},
             {id: 2, value: 0},
             {id: 3, value: 0},
             {id: 4, value: 0}
         ]
     };
+
+    constructor(){
+        super();
+
+    }
+
+    componentDidMount() {
+        console.log("App - Mounted");
+    }
 
     handleIncrement = counter => {
         const counters = [...this.state.counters];
@@ -34,6 +43,7 @@ class App extends Component {
         this.setState({counters});
     };
     render() {
+        console.log("App - Rendered");
         return (
             <React.Fragment>
             <NavBar totalCounters = {this.state.counters.filter(c => c.value > 0).length} />
